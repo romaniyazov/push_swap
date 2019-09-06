@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:08:14 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/06 19:14:16 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/06 20:18:38 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ int		main(int argc, char** argv)
 			stackpushback(ft_atoi(argv[i]), a);
 		print_stack(a);
 		while (get_next_line(1, &line) > 0)
+		{
 			ft_printf("%s\n", line);
+			ft_strdel(&line);
+		}
+		stackdel(a);
 	}
 }

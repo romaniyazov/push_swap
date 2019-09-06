@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 18:19:25 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/06 18:52:20 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/06 21:36:03 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,39 @@ void	stackpushback(int nbr, t_stack *s)
 	while (s->next)
 		s = s->next;
 	s->next = s_new;
+}
+
+int		stackpoplast(t_stack *s)
+{
+	t_stack		*tmp;
+
+	while (s->next)
+	{
+		tmp = s;
+		s = s->next;
+	}
+	free(s);
+	tmp->next = NULL;
+}
+
+t_stack	*stackpopfirst(t_stack *s)
+{
+	t_stack		*tmp;
+
+	tmp = s;
+	s = s->next;
+	free(tmp);
+	return (s);
+}
+
+void	stackdel(t_stack *s)
+{
+	t_stack		*tmp;
+	while (s)
+	{
+		tmp = s->next;
+		free(s);
+		s = tmp;
+	}
+	free(tmp);
 }

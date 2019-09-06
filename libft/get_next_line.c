@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 18:13:48 by adavis            #+#    #+#             */
-/*   Updated: 2019/06/03 18:01:50 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/06 20:18:15 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		flush(char **tmp, char **trail, char **line)
 		*trail = NULL;
 		return (1);
 	}
+	ft_strdel(trail);
 	return (0);
 }
 

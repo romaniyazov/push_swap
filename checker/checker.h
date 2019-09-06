@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:11:00 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/06 18:50:57 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/06 20:09:07 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int		main(int argc, char** argv);
 t_stack	*stacknew();
 t_stack	*stackpush(int nbr, t_stack *s);
 void	stackpushback(int nbr, t_stack *s);
+void	stackdel(t_stack *s);
 
 #endif
