@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 12:56:25 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/07 17:15:50 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/08 19:40:35 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "stacks.h"
 
 void	push(t_stack **a, t_stack **b)
 {
@@ -24,7 +24,6 @@ void	push(t_stack **a, t_stack **b)
 		stackpush(nbr, a);
 	else
 		*a = stacknew(nbr);
-	ft_putchar('\n');
 }
 
 void	swap(t_stack **s)

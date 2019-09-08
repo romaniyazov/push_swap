@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
+#    By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 13:37:06 by adavis            #+#    #+#              #
-#    Updated: 2019/09/06 19:22:59 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/08 20:03:20 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ $(NAME):
 	@ar rc $(NAME) $(OBJ)
 	@make -C ft_printf
 	@rm -f libft.a
-	@cp ft_printf/libft.a .
+	@mv ft_printf/libft.a .
 	@ranlib $(NAME)
 
 all: $(NAME)

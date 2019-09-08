@@ -1,1 +1,7 @@
 checker/checker
+.vscode/settings.json
+checker/kek.sh
+libft/libft.a
+checker/checker.dSYM/Contents/Resources/DWARF/checker
+libstacks/libstacks.a
+checker/checker.dSYM/Contents/Info.plist

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 18:19:25 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/07 16:16:19 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/08 19:44:43 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "stacks.h"
 
 t_stack	*stacknew(int nbr)
 {
@@ -81,12 +81,14 @@ void	stackdel(t_stack **s)
 	t_stack		*tmp;
 	t_stack		*ss;
 
+	if (!*s)
+		return ;
 	ss = *s;
 	while (*s)
 	{
 		tmp = (*s)->next;
 		free(*s);
-		(*s) = tmp;
+		*s = tmp;
 	}
 	ss = NULL;
 }

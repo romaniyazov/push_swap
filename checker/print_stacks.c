@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   print_stacks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 14:11:00 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/08 20:00:30 by adavis           ###   ########.fr       */
+/*   Created: 2019/09/08 19:35:48 by adavis            #+#    #+#             */
+/*   Updated: 2019/09/08 20:02:08 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER
-# define CHECKER
+#include "checker.h"
 
-# include "libft.h"
-# include "stacks.h"
-
-# define INSTRUCTIONS (const char*[11]){ "sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr" }
-
-int		args_to_list(int argc, char **argv, t_stack **s);
-
-#endif
+void	print_stacks(t_stack *a, t_stack *b)
+{
+	while (a || b)
+	{
+		if (a)
+		{
+			ft_printf("a%5d", a->nbr);
+			a = a->next;
+		}
+		else
+			ft_printf("     ");
+		if (b)
+		{
+			ft_printf("b%5d", b->nbr);
+			b = b->next;
+		}
+		ft_printf("\n");
+	}
+	ft_printf("%5c%5c\n", '_', '_');
+	ft_printf("\n%5c%5c\n", 'a', 'b');
+}
