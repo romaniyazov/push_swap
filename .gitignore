@@ -8,3 +8,7 @@ checker/checker.dSYM/Contents/Info.plist
 libft/*.o
 libft/ft_printf/*.o
 libstacks/*.o
+push_swap
+a.out.dSYM/Contents/Resources/DWARF/a.out
+a.out.dSYM/Contents/Info.plist
+push_swap.dSYM/Contents/Info.plist
