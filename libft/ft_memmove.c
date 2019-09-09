@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/13 18:25:05 by adavis            #+#    #+#             */
-/*   Updated: 2019/04/25 16:16:37 by adavis           ###   ########.fr       */
+/*   Created: 2019/09/08 22:34:15 by adavis            #+#    #+#             */
+/*   Updated: 2019/09/08 22:34:38 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (src > dst)
 		return (ft_memcpy(dst, (void *)src, len));
 	while (len--)
-	{
 		dst_chr[len] = src_chr[len];
-	}
 	return (dst);
 }

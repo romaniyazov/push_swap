@@ -5,3 +5,6 @@ libft/libft.a
 checker/checker.dSYM/Contents/Resources/DWARF/checker
 libstacks/libstacks.a
 checker/checker.dSYM/Contents/Info.plist
+libft/*.o
+libft/ft_printf/*.o
+libstacks/*.o

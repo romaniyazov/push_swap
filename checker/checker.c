@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:11:59 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/08 20:00:56 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/09 13:08:18 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int		is_instruction(char *instruction)
 void	read_instuctions(t_stack **a, t_stack **b)
 {
 	char	*line;
+	int		cnt;
 
+	cnt = 0;
 	while (get_next_line(0, &line) > 0)
 	{
 		if (!is_instruction(line))
@@ -75,6 +77,9 @@ void	read_instuctions(t_stack **a, t_stack **b)
 		if (!ft_strcmp(line, "pb"))
 			push(b, a);
 		ft_strdel(&line);
+		print_stacks(*a, *b);
+		cnt++;
+		ft_printf("Instruction %d\n", cnt);
 	}
 }
 
@@ -102,6 +107,7 @@ int		main(int argc, char** argv)
 		exit(0);
 	}
 	b = NULL;
+	print_stacks(a, b);
 	read_instuctions(&a, &b);
 	if (is_sorted(a))
 		ft_printf("OK\n");

@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 19:35:48 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/08 20:02:08 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/08 22:01:33 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	print_stacks(t_stack *a, t_stack *b)
 	{
 		if (a)
 		{
-			ft_printf("a%5d", a->nbr);
+			ft_printf("%5d", a->nbr);
 			a = a->next;
 		}
 		else
 			ft_printf("     ");
 		if (b)
 		{
-			ft_printf("b%5d", b->nbr);
+			ft_printf("%5d", b->nbr);
 			b = b->next;
 		}
 		ft_printf("\n");
