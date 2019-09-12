@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:31:27 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/09 20:50:41 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/10 18:15:15 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,22 @@ void				index_ilist(t_ilist *s, int total);
 t_ilist				*ilistnew(int nbr, int i);
 void				ilistpush(int nbr, int i, t_ilist **s);
 void				ilistpushback(int nbr, int i, t_ilist *s);
-int					ilistpoplast(t_ilist *s);
+int					ilistpoplast(t_ilist *s, int *i);
 int					ilistpopfirst(t_ilist **s);
 void				ilistdel(t_ilist **s);
 
 void				push(t_ilist **a, t_ilist **b);
 void				swap(t_ilist **s);
 void				rotate(t_ilist **s);
+void				reverse_rotate(t_ilist **s);
 
 int					is_sorted(t_ilist *s);
 
 void				sort_three(t_ilist *a);
 void				sort_more(int argc, t_ilist *a, t_ilist *b);
+void				naive_sort(int argc, t_ilist **a, t_ilist **b);
+void				super_sort(t_ilist **a, t_ilist **b);
+
+int					r_rr(t_ilist *s, int argc, int i);
 
 #endif

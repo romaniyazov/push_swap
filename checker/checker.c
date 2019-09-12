@@ -6,11 +6,12 @@
 /*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:11:59 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/09 20:56:00 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/10 19:37:31 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include <stdio.h>
 
 void	terminate(t_stack **a, t_stack **b)
 {
@@ -76,11 +77,11 @@ void	read_instuctions(t_stack **a, t_stack **b)
 			push(a, b);
 		if (!ft_strcmp(line, "pb"))
 			push(b, a);
-		ft_printf("Instruction %d %s\n", cnt, line);
+		printf("Instruction %d %s\n", cnt, line);
 		ft_strdel(&line);
 		print_stacks(*a, *b);
 		cnt++;
-		sleep(1);
+		//sleep(1);
 	}
 }
 
@@ -110,7 +111,7 @@ int		main(int argc, char** argv)
 	b = NULL;
 	print_stacks(a, b);
 	read_instuctions(&a, &b);
-	if (is_sorted(a))
+	if (is_sorted(a) && !b)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");

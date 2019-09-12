@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 12:56:25 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/09 20:34:28 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/10 13:52:30 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	rotate(t_ilist **s)
 	ilistpushback(nbr, i, *s);
 }
 
-/*
 void	reverse_rotate(t_ilist **s)
 {
 	int		a;
+	int		i;
 
 	if (!(*s) || !(*s)->next)
 		return ;
-	a = ilistpoplast(*s);
-	ilistpush(a, s);
+	a = ilistpoplast(*s, &i);
+	ilistpush(a, i, s);
 }
-*/
+

@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:36:21 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/09 14:31:51 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/10 14:20:29 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ilistpushback(int nbr, int i, t_ilist *s)
 		s = s->next;
 	s->next = s_new;
 }
-int		ilistpoplast(t_ilist *s)
+int		ilistpoplast(t_ilist *s, int *i)
 {
 	t_ilist		*tmp;
 	int			nbr;
@@ -52,6 +52,7 @@ int		ilistpoplast(t_ilist *s)
 		s = s->next;
 	}
 	nbr = s->nbr;
+	*i = s->i;
 	free(s);
 	tmp->next = NULL;
 	return (nbr);
@@ -61,6 +62,7 @@ int		ilistpopfirst(t_ilist **s)
 {
 	t_ilist		*tmp;
 	int			nbr;
+	int			i;
 
 	if (!(*s)->next)
 	{
