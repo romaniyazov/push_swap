@@ -12,4 +12,4 @@ while not len(nums) == cnt:
 
 arg = ' '.join([str(num) for num in nums])
 
-os.environ["ARG"] = arg
+print(arg)

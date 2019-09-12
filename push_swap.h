@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:31:27 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/10 18:15:15 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/12 16:27:42 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,14 @@ int					is_sorted(t_ilist *s);
 void				sort_three(t_ilist *a);
 void				sort_more(int argc, t_ilist *a, t_ilist *b);
 void				naive_sort(int argc, t_ilist **a, t_ilist **b);
-void				super_sort(t_ilist **a, t_ilist **b);
+
+void				partition_sort(int argc, t_ilist **a, t_ilist **b);
 
 int					r_rr(t_ilist *s, int argc, int i);
+
+int					ilistlen(t_ilist *s);
+
+int					ilistmin(t_ilist *s);
+int					ilistmax(t_ilist *s);
 
 #endif
