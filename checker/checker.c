@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:11:59 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/12 22:52:00 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/13 16:09:50 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	read_instuctions(t_stack **a, t_stack **b)
 		if (!ft_strcmp(line, "pb"))
 			push(b, a);
 		cnt++;
-		printf("Instruction %d %s\n", cnt, line);
+		//ft_printf("%d\t%s\n", cnt, line);
+		ft_printf("%s\n", line);
 		ft_strdel(&line);
 		//print_stacks(*a, *b);
 		//sleep(1);
@@ -109,7 +110,7 @@ int		main(int argc, char** argv)
 		exit(0);
 	}
 	b = NULL;
-	print_stacks(a, b);
+	//print_stacks(a, b);
 	read_instuctions(&a, &b);
 	if (is_sorted(a) && !b)
 		ft_printf("OK\n");

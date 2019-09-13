@@ -1,47 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   naive_sort.c                                       :+:      :+:    :+:   */
+/*   ilistmisc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 16:24:37 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/13 16:28:08 by adavis           ###   ########.fr       */
+/*   Created: 2019/09/13 16:27:58 by adavis            #+#    #+#             */
+/*   Updated: 2019/09/13 16:31:49 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	naive_sort(t_ilist **a, t_ilist **b)
+int		ilistlen(t_ilist *s)
 {
-	int		i;
+	int		cnt;
 
-	i = 1;
-	while ((*a)->next && !is_sorted(*a))
+	cnt = 0;
+	while (s)
 	{
-		if (r_rr(*a, ilistlen(*a), i))
-		{
-			while ((*a)->i != i)
-			{
-				ft_printf("ra\n");
-				rotate(a);
-			}
-		}
-		else
-		{
-			while ((*a)->i != i)
-			{
-				ft_printf("rra\n");
-				reverse_rotate(a);
-			}
-		}
-		push(b, a);
-		ft_printf("pb\n");
-		i++;
+		cnt++;
+		s = s->next;
 	}
-	while (*b)
+	return (cnt);
+}
+
+int		ilistmax(t_ilist *s)
+{
+	int		max;
+
+	max = s->i;
+	while (s)
 	{
-		push(a, b);
-		ft_printf("pa\n");
+		if (s->i > max)
+			max = s->i;
+		s = s->next;
 	}
+	return (max);
+}
+
+int		ilistmin(t_ilist *s)
+{
+	int		min;
+
+	min = s->i;
+	while (s)
+	{
+		if (s->i < min)
+			min = s->i;
+		s = s->next;
+	}
+	return (min);
 }

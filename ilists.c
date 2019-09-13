@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ilists.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:36:21 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/10 14:20:29 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/13 16:07:05 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int		ilistpopfirst(t_ilist **s)
 {
 	t_ilist		*tmp;
 	int			nbr;
-	int			i;
 
 	if (!(*s)->next)
 	{

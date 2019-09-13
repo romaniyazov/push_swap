@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   naive_sort.c                                       :+:      :+:    :+:   */
+/*   optimize_ops.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 16:24:37 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/13 16:28:08 by adavis           ###   ########.fr       */
+/*   Created: 2019/09/13 16:47:31 by adavis            #+#    #+#             */
+/*   Updated: 2019/09/13 17:28:15 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	naive_sort(t_ilist **a, t_ilist **b)
+void	optimize_ops(t_stack **ops)
 {
-	int		i;
+	char	flag;
+	t_stack	*oops;
+	t_stack *tmp;
 
-	i = 1;
-	while ((*a)->next && !is_sorted(*a))
+	flag = 1;
+	while (flag)
 	{
-		if (r_rr(*a, ilistlen(*a), i))
+		flag = 0;
+		oops = *ops;
+		while (oops)
 		{
-			while ((*a)->i != i)
+			if (oops->nbr == 6 && oops->next->nbr == 7)
 			{
-				ft_printf("ra\n");
-				rotate(a);
+				oops->nbr = 8;
+				tmp = oops->next;
+				oops->next = oops->next->next;
+				free(tmp);
+				flag = 1;
 			}
+			oops = oops->next;
 		}
-		else
-		{
-			while ((*a)->i != i)
-			{
-				ft_printf("rra\n");
-				reverse_rotate(a);
-			}
-		}
-		push(b, a);
-		ft_printf("pb\n");
-		i++;
-	}
-	while (*b)
-	{
-		push(a, b);
-		ft_printf("pa\n");
 	}
 }

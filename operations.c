@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 12:56:25 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/10 13:52:30 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/13 16:40:18 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_ilist **a, t_ilist **b)
+void	ipush(t_ilist **a, t_ilist **b)
 {
 	int		nbr;
 	int		i;
@@ -30,7 +30,7 @@ void	push(t_ilist **a, t_ilist **b)
 		*a = ilistnew(nbr, i);
 }
 
-void	swap(t_ilist **s)
+void	iswap(t_ilist **s)
 {
 	int		a;
 	int		ai;
@@ -47,7 +47,7 @@ void	swap(t_ilist **s)
 	ilistpush(b, bi, s);
 }
 
-void	rotate(t_ilist **s)
+void	irotate(t_ilist **s)
 {
 	int		nbr;
 	int		i;
@@ -59,7 +59,7 @@ void	rotate(t_ilist **s)
 	ilistpushback(nbr, i, *s);
 }
 
-void	reverse_rotate(t_ilist **s)
+void	ireverse_rotate(t_ilist **s)
 {
 	int		a;
 	int		i;
