@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 14:27:11 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/14 14:53:40 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/14 21:51:11 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	scroll_to_n(t_ilist **s, int n, char name, t_stack *ops)
 		while ((*s)->i != n)
 		{
 			irotate(s);
-			//ft_printf("r%c\n", name);
 			stackpushback(name == 'a' ? 6 : 7, ops);
 		}
 	}
@@ -76,7 +75,6 @@ void	scroll_to_n(t_ilist **s, int n, char name, t_stack *ops)
 		while ((*s)->i != n)
 		{
 			ireverse_rotate(s);
-			//ft_printf("rr%c\n", name);
 			stackpushback(name == 'a' ? 9 : 10, ops);
 		}
 	}
@@ -116,12 +114,10 @@ void	partition_sort(t_ilist **a, t_ilist **b, t_stack *ops)
 	while (*a)
 	{
 		n = closest(*a, c_cnt * c_size + 1, c_cnt * c_size + c_size);
-		//n = ilistmax(*a);
 		scroll_to_n(a, n, 'a', ops);
 		if (*b)
 			scroll_to_n(b, find_nearest(*b, n), 'b', ops);
 		ipush(b, a);
-		//ft_printf("pb\n");
 		stackpushback(5, ops);
 		cnt++;
 		if (cnt == c_size)

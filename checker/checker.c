@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:11:59 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/13 16:09:50 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/14 21:48:58 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	read_instuctions(t_stack **a, t_stack **b)
 		//ft_printf("%d\t%s\n", cnt, line);
 		ft_printf("%s\n", line);
 		ft_strdel(&line);
-		//print_stacks(*a, *b);
+		print_stacks(*a, *b);
 		//sleep(1);
 	}
 }
