@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 14:27:11 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/13 16:43:51 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/14 14:53:40 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,14 @@ void	partition_sort(t_ilist **a, t_ilist **b, t_stack *ops)
 	int		n;
 	int		cnt;
 
-	c_size = 21;
+	c_size = ilistlen(*a) / ft_sqrt(ilistlen(*a)) * 3 / 2;
 	c_cnt = 0;
 	cnt = 0;
 	n = 1;
 	while (*a)
 	{
 		n = closest(*a, c_cnt * c_size + 1, c_cnt * c_size + c_size);
+		//n = ilistmax(*a);
 		scroll_to_n(a, n, 'a', ops);
 		if (*b)
 			scroll_to_n(b, find_nearest(*b, n), 'b', ops);
