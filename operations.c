@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 12:56:25 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/13 16:40:18 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 22:46:33 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,3 @@ void	ireverse_rotate(t_ilist **s)
 	a = ilistpoplast(*s, &i);
 	ilistpush(a, i, s);
 }
-

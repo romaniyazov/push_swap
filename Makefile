@@ -6,7 +6,7 @@
 #    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 13:37:06 by adavis            #+#    #+#              #
-#    Updated: 2019/09/15 20:18:05 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/15 22:52:03 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,11 @@ SRC			=	push_swap.c \
 				operations.c \
 				partition_sort.c \
 				sort_three.c \
-				naive_sort.c \
-				swap_sort.c \
 				sort_six.c \
 				ilistmisc.c \
 				ilists.c \
 				optimize_ops.c \
+				ilistdel.c \
 				r_rr.c
 OBJ			=	$(SRC:%.c=%.o)
 

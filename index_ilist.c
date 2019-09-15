@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index_ilist.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 18:15:02 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/09 18:15:17 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 22:47:31 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		find_min(t_ilist *s)
 
 void	index_min(t_ilist *s, int min, int i)
 {
-	while(s->nbr != min)
+	while (s->nbr != min)
 		s = s->next;
 	s->i = i;
 }

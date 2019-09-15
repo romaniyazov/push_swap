@@ -6,11 +6,20 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 19:08:41 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/15 22:39:04 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 22:46:18 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_three2(t_ilist **a, t_stack *ops)
+{
+	if ((*a)->i == 3 && (*a)->next->i == 1)
+	{
+		irotate(a);
+		stackpushback(6, ops);
+	}
+}
 
 void	sort_three(t_ilist **a, t_stack *ops)
 {
@@ -38,9 +47,5 @@ void	sort_three(t_ilist **a, t_stack *ops)
 		stackpushback(1, ops);
 		stackpushback(9, ops);
 	}
-	if ((*a)->i == 3 && (*a)->next->i == 1)
-	{
-		irotate(a);
-		stackpushback(6, ops);
-	}
+	sort_three2(a, ops);
 }

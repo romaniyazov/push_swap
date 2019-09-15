@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 17:44:19 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/15 22:05:58 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 22:48:22 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		r_rr(t_ilist *s, int argc, int i)
 	cnt = 0;
 	while (s->i != i)
 	{
-		//ft_printf("%d %d\n", s->i, i);
 		if (s->next)
 			s = s->next;
 		else

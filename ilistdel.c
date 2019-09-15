@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   naive_sort.c                                       :+:      :+:    :+:   */
+/*   ilistdel.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 16:24:37 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/13 16:28:08 by adavis           ###   ########.fr       */
+/*   Created: 2019/09/15 22:47:43 by adavis            #+#    #+#             */
+/*   Updated: 2019/09/15 22:48:00 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	naive_sort(t_ilist **a, t_ilist **b)
+void	ilistdel(t_ilist **s)
 {
-	int		i;
+	t_ilist		*tmp;
+	t_ilist		*ss;
 
-	i = 1;
-	while ((*a)->next && !is_sorted(*a))
+	if (!*s)
+		return ;
+	ss = *s;
+	while (*s)
 	{
-		if (r_rr(*a, ilistlen(*a), i))
-		{
-			while ((*a)->i != i)
-			{
-				ft_printf("ra\n");
-				rotate(a);
-			}
-		}
-		else
-		{
-			while ((*a)->i != i)
-			{
-				ft_printf("rra\n");
-				reverse_rotate(a);
-			}
-		}
-		push(b, a);
-		ft_printf("pb\n");
-		i++;
+		tmp = (*s)->next;
+		free(*s);
+		*s = tmp;
 	}
-	while (*b)
-	{
-		push(a, b);
-		ft_printf("pa\n");
-	}
+	ss = NULL;
 }

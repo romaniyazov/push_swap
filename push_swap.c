@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:28:05 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/15 22:40:10 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 22:52:49 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		main(int argc, char **argv)
 		sort_six(&a, &b, ops);
 	else if (!is_sorted(a))
 		partition_sort(&a, &b, ops);
+	optimize_ops(&ops);
 	print_ops(ops);
 	ilistdel(&a);
 	ilistdel(&b);
