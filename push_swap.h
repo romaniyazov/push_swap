@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:31:27 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/14 13:31:34 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 21:54:35 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,19 @@ void				ireverse_rotate(t_ilist **s);
 
 int					is_sorted(t_ilist *s);
 
-void				sort_three(t_ilist *a);
+void				sort_three(t_ilist **a, t_stack *ops);
 void				sort_more(int argc, t_ilist *a, t_ilist *b);
-void				naive_sort(t_ilist **a, t_ilist **b);
+void				naive_sort(t_ilist **a, t_ilist **b, t_stack *ops);
+void				swap_sort(t_ilist **s, t_stack *ops);
+void				sort_six(t_ilist **a, t_ilist **b, t_stack *ops);
 
 void				partition_sort(t_ilist **a, t_ilist **b, t_stack *ops);
 
 int					r_rr(t_ilist *s, int argc, int i);
 
 void				optimize_ops(t_stack **ops);
+
+void				scroll_to_n(t_ilist **s, int n, char name, t_stack *ops);
+int					find_nearest(t_ilist *s, int n);
 
 #endif

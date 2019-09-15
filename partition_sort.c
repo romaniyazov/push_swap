@@ -6,31 +6,11 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 14:27:11 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/14 21:51:11 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 22:09:30 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		r_rr(t_ilist *s, int argc, int i)
-{
-	int		cnt;
-	t_ilist	*ss;
-
-	ss = s;
-	cnt = 0;
-	while (s->i != i)
-	{
-		if (s->next)
-			s = s->next;
-		else
-			s = ss;
-		cnt++;
-	}
-	if (cnt > argc / 2)
-		return (0);
-	return (1);
-}
 
 int		closest(t_ilist *s, int min, int max)
 {
@@ -100,14 +80,12 @@ int		find_nearest(t_ilist *s, int n)
 	return (nearest);
 }
 
-void	partition_sort(t_ilist **a, t_ilist **b, t_stack *ops)
+void	a_to_b_sorted(t_ilist **a, t_ilist **b, t_stack *ops, int c_size)
 {
-	int		c_size;
-	int		c_cnt;
-	int		n;
 	int		cnt;
+	int		n;
+	int		c_cnt;
 
-	c_size = ilistlen(*a) / ft_sqrt(ilistlen(*a)) * 3 / 2;
 	c_cnt = 0;
 	cnt = 0;
 	n = 1;
@@ -126,11 +104,24 @@ void	partition_sort(t_ilist **a, t_ilist **b, t_stack *ops)
 			c_cnt++;
 		}
 	}
+}
+
+void	partition_sort(t_ilist **a, t_ilist **b, t_stack *ops)
+{
+	int		c_size;
+	int		c_cnt;
+	int		n;
+	int		cnt;
+
+	c_size = ilistlen(*a) / ft_sqrt(ilistlen(*a)) * 3 / 2;
+	c_cnt = 0;
+	cnt = 0;
+	n = 1;
+	a_to_b_sorted(a, b, ops, c_size);
 	while (*b)
 	{
 		scroll_to_n(b, ilistmax(*b), 'b', ops);
 		ipush(a, b);
-		//ft_printf("pa\n");
 		stackpushback(4, ops);
 	}
 }

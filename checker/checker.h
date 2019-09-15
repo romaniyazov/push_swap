@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:11:00 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/08 22:00:25 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 20:02:02 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER
-# define CHECKER
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include "libft.h"
 # include "stacks.h"
 
-# define INSTRUCTIONS (const char*[11]){ "sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr" }
+# define I (char*[]){"sa","sb","ss","pa","pb","ra","rb","rr","rra","rrb","rrr"}
 
 int		args_to_list(int argc, char **argv, t_stack **s);
 void	print_stacks(t_stack *a, t_stack *b);
+int		is_sorted(t_stack *s);
 
 #endif

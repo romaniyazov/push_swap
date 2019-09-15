@@ -6,12 +6,14 @@
 #    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 13:37:06 by adavis            #+#    #+#              #
-#    Updated: 2019/09/14 13:50:51 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/15 20:18:05 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap
-FLAGS		=	-Wall -Werror -Wextra -g
+FLAGS		=	-c -Wall -Werror -Wextra
+LIBFT		=	-Ilibft -Llibft -lft
+LIBSTACKS	=	-Ilibstacks -Llibstacks -lstacks
 SRC			=	push_swap.c \
 				args_to_ilist.c \
 				index_ilist.c \
@@ -19,16 +21,36 @@ SRC			=	push_swap.c \
 				operations.c \
 				partition_sort.c \
 				sort_three.c \
+				naive_sort.c \
+				swap_sort.c \
+				sort_six.c \
 				ilistmisc.c \
 				ilists.c \
-				optimize_ops.c
-
-$(NAME):
-	@gcc $(FLAGS) $(SRC) -Ilibft -Llibft -lft -Ilibstacks -Llibstacks -lstacks -o $(NAME)
+				optimize_ops.c \
+				r_rr.c
+OBJ			=	$(SRC:%.c=%.o)
 
 all: $(NAME)
 
-fclean:
+$(NAME): obj
+	@make -C libstacks
+	@make -C libft
+	@make -C checker
+	@gcc $(OBJ) -Llibft -lft -Llibstacks -lstacks -o $(NAME)
+
+obj:
+	@gcc $(FLAGS) $(SRC) -Ilibft -Ilibstacks
+
+clean:
+	@make -C libft $@
+	@make -C libstacks $@
+	@make -C checker $@
+	@rm -f $(OBJ)
+
+fclean: clean
+	@make -C libft $@
+	@make -C libstacks $@
+	@make -C checker $@
 	@rm -f $(NAME)
 
 re: fclean all

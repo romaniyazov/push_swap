@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 18:19:25 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/08 19:44:43 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/15 20:03:21 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	stackpushback(int nbr, t_stack *s)
 		s = s->next;
 	s->next = s_new;
 }
+
 int		stackpoplast(t_stack *s)
 {
 	t_stack		*tmp;
@@ -74,21 +75,4 @@ int		stackpopfirst(t_stack **s)
 		free(tmp);
 	}
 	return (nbr);
-}
-
-void	stackdel(t_stack **s)
-{
-	t_stack		*tmp;
-	t_stack		*ss;
-
-	if (!*s)
-		return ;
-	ss = *s;
-	while (*s)
-	{
-		tmp = (*s)->next;
-		free(*s);
-		*s = tmp;
-	}
-	ss = NULL;
 }
