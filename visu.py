@@ -151,7 +151,7 @@ while inp:
 	win.update()
 	cnt += 1
 text.undraw()
-if sorted(a):
+if a == sorted(a):
 	text = put_operation('OK', cnt - 1)
 else:
 	text = put_operation('KO', cnt - 1)
