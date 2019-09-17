@@ -6,7 +6,7 @@
 #    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 13:37:06 by adavis            #+#    #+#              #
-#    Updated: 2019/09/15 22:52:03 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/17 13:19:16 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC			=	push_swap.c \
 				operations.c \
 				partition_sort.c \
 				sort_three.c \
-				sort_six.c \
+				sort_five.c \
 				ilistmisc.c \
 				ilists.c \
 				optimize_ops.c \
@@ -34,7 +34,8 @@ all: $(NAME)
 $(NAME): obj
 	@make -C libstacks
 	@make -C libft
-	@make -C checker
+	@make -C checkerr
+	@cp -f checkerr/checker .
 	@gcc $(OBJ) -Llibft -lft -Llibstacks -lstacks -o $(NAME)
 
 obj:
@@ -43,13 +44,14 @@ obj:
 clean:
 	@make -C libft $@
 	@make -C libstacks $@
-	@make -C checker $@
+	@make -C checkerr $@
 	@rm -f $(OBJ)
 
 fclean: clean
 	@make -C libft $@
 	@make -C libstacks $@
-	@make -C checker $@
+	@make -C checkerr $@
+	@rm -f checker
 	@rm -f $(NAME)
 
 re: fclean all

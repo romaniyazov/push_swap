@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:28:05 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/15 22:52:49 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/17 12:44:53 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,12 @@ int		main(int argc, char **argv)
 	if (argc == 4 && !is_sorted(a))
 		sort_three(&a, ops);
 	else if (argc == 6 && !is_sorted(a))
-		sort_six(&a, &b, ops);
+		sort_five(&a, &b, ops);
 	else if (!is_sorted(a))
+	{
 		partition_sort(&a, &b, ops);
-	optimize_ops(&ops);
+		optimize_ops(&ops);
+	}
 	print_ops(ops);
 	ilistdel(&a);
 	ilistdel(&b);

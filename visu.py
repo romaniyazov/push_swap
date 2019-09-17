@@ -88,9 +88,6 @@ args.pop(0)
 if len(args) != len(set(args)):
 	print('Args not valid.')
 	exit()
-if len(args) < 20:
-	print ("Too little numbers to visualize.")
-	exit()
 ai = [int(num) for num in args]
 a = [0 for _ in range(len(ai))]
 indexed = []
@@ -112,10 +109,12 @@ for _ in range(len_a):
 	bol.append(0)
 	al.append(0)
 	bl.append(0)
-if len_a < 50:
-	line_width = 6
+if len_a < 30:
+	line_width = 30
+elif len_a < 50:
+	line_width = 8
 elif len_a < 200:
-	line_width = 5
+	line_width = 6
 elif len_a < 400:
 	line_width = 4
 else:
