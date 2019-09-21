@@ -83,8 +83,14 @@ def create_stacks():
 		bl[x] = 0
 		x += 1
 
-args = [num for num in argv]
-args.pop(0)
+if len(argv) < 2:
+	exit(0)
+elif len(argv) == 2:
+	args = [num for num in argv[1].split()]
+else:
+	args = [num for num in argv]
+	args.pop(0)
+print(args)
 if len(args) != len(set(args)):
 	print('Args not valid.')
 	exit()
@@ -124,7 +130,6 @@ win.setBackground(color_rgb(31, 36, 48))
 putstacklabels()
 win.update()
 inp = True
-#text = False
 b = []
 
 #	Display stacks and wait for click
