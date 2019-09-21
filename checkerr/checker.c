@@ -6,20 +6,12 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:11:59 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/15 22:22:27 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/21 18:03:37 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include <stdio.h>
-
-void	terminate(t_stack **a, t_stack **b)
-{
-	stackdel(a);
-	stackdel(b);
-	write(2, "Error\n", 6);
-	exit(0);
-}
 
 int		is_instruction(char *inst)
 {
@@ -37,6 +29,8 @@ int		is_instruction(char *inst)
 
 void	read_instructions2(t_stack **a, t_stack **b, char *line)
 {
+	int		i;
+
 	if (!ft_strcmp(line, "rr"))
 	{
 		rotate(a);
@@ -57,6 +51,9 @@ void	read_instructions2(t_stack **a, t_stack **b, char *line)
 		push(b, a);
 	if (!ft_strcmp(line, "sb"))
 		swap(b);
+	i = 0;
+	while (i < 20000)
+		i++;
 }
 
 void	read_instructions(t_stack **a, t_stack **b)
@@ -84,17 +81,15 @@ void	read_instructions(t_stack **a, t_stack **b)
 			rotate(b);
 		read_instructions2(a, b, line);
 		cnt++;
-		ft_strdel(&line);
 	}
 }
 
-int		main(int argc, char **argv)
+void	checker(int argc, char **argv)
 {
 	t_stack		*a;
 	t_stack		*b;
 
-	if (argc < 2)
-		exit(0);
+	a = NULL;
 	if (!args_to_list(argc, argv, &a))
 	{
 		write(2, "Error\n", 6);
@@ -108,4 +103,27 @@ int		main(int argc, char **argv)
 		ft_printf("KO\n");
 	stackdel(&a);
 	stackdel(&b);
+}
+
+int		main(int argc, char **argv)
+{
+	char	**args;
+	char	**aargs;
+
+	if (argc < 2)
+		exit(0);
+	else if (argc == 2)
+	{
+		args = ft_strsplit(argv[1], ' ');
+		aargs = args;
+		checker(ft_strwrdcnt(argv[1], ' ') + 1, args);
+		while (*args)
+		{
+			free(*args);
+			args++;
+		}
+		free(aargs);
+	}
+	else
+		checker(argc, &argv[1]);
 }

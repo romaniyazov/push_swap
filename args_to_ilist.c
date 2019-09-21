@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 17:47:18 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/17 13:14:43 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/21 16:52:50 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,31 @@ int		is_in_list(t_ilist *s, int n)
 	return (0);
 }
 
-int		isnbr(char *str)
+int		isint(char *str)
 {
-	while (*str)
+	int		neg;
+	char	*s;
+
+	neg = 0;
+	if (*str == '-' || *str == '+')
 	{
-		if (!ft_isdigit(*str))
-			return (0);
 		str++;
+		neg = 1;
 	}
+	else if (*str == '+')
+		str++;
+	else if (!ft_isdigit(*str))
+		return (0);
+	s = str;
+	while (*s)
+	{
+		if (!ft_isdigit(*s))
+			return (0);
+		s++;
+	}
+	if ((!neg && ft_strlen(str) > 9 && ft_strcmp("2147483647", str) < 0) ||
+		(neg && ft_strlen(str) > 9 && ft_strcmp("2147483648", str) < 0))
+		return (0);
 	return (1);
 }
 
@@ -38,21 +55,15 @@ int		args_to_ilist(int argc, char **argv, t_ilist **s)
 {
 	int		i;
 
-	if ((!ft_atoi(argv[1]) && ft_strcmp(argv[1], "0")) ||
-			is_in_list(*s, ft_atoi(argv[1])) ||
-			(argv[1][0] != '-' && ft_atoi(argv[1]) < 0) ||
-			(argv[1][0] == '-' && ft_atoi(argv[1]) > 0) ||
-			!isnbr(argv[1]))
+	if ((!ft_atoi(argv[0]) && ft_strcmp(argv[0], "0")) || !isint(argv[0]))
 		return (0);
-	*s = ilistnew(ft_atoi(argv[1]), 0);
-	i = 1;
-	while (++i < argc)
+	*s = ilistnew(ft_atoi(argv[0]), 0);
+	i = 0;
+	while (++i < argc - 1)
 	{
 		if ((!ft_atoi(argv[i]) && ft_strcmp(argv[i], "0")) ||
 			is_in_list(*s, ft_atoi(argv[i])) ||
-			(argv[i][0] != '-' && ft_atoi(argv[i]) < 0) ||
-			(argv[i][0] == '-' && ft_atoi(argv[i]) > 0) ||
-			!isnbr(argv[i]))
+			!isint(argv[i]))
 		{
 			ilistdel(s);
 			return (0);

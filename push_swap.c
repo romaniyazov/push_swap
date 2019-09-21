@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 13:28:05 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/17 12:44:53 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/21 17:56:33 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,19 @@ void	print_ops(t_stack *ops)
 	}
 }
 
-int		main(int argc, char **argv)
+void	push_swap(int argc, char **argv)
 {
 	t_ilist		*a;
 	t_ilist		*b;
 	t_stack		*ops;
 	t_stack		*oops;
 
+	a = NULL;
 	b = NULL;
 	ops = stacknew(0);
 	oops = ops;
 	if (!args_to_ilist(argc, argv, &a))
-		terminate(&a, &a);
+		terminate(&a, &b);
 	index_ilist(a, argc - 1);
 	if (argc == 4 && !is_sorted(a))
 		sort_three(&a, ops);
@@ -81,4 +82,27 @@ int		main(int argc, char **argv)
 	ilistdel(&a);
 	ilistdel(&b);
 	stackdel(&oops);
+}
+
+int		main(int argc, char **argv)
+{
+	char	**args;
+	char	**aargs;
+
+	if (argc < 2)
+		exit(0);
+	else if (argc == 2)
+	{
+		args = ft_strsplit(argv[1], ' ');
+		aargs = args;
+		push_swap(ft_strwrdcnt(argv[1], ' ') + 1, args);
+		while (*args)
+		{
+			free(*args);
+			args++;
+		}
+		free(aargs);
+	}
+	else
+		push_swap(argc, &argv[1]);
 }

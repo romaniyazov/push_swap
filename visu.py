@@ -155,4 +155,9 @@ if a == sorted(a):
 else:
 	text = put_operation('KO', cnt - 1)
 text.draw(win)
-win.getMouse()
+while not win.isClosed():
+	try:
+		if win.checkKey() == 'Escape':
+			exit()
+	except KeyboardInterrupt:
+		exit()

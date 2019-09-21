@@ -6,14 +6,15 @@
 #    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 13:37:06 by adavis            #+#    #+#              #
-#    Updated: 2019/09/17 13:19:16 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/21 17:07:07 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap
-FLAGS		=	-c -Wall -Werror -Wextra
-LIBFT		=	-Ilibft -Llibft -lft
-LIBSTACKS	=	-Ilibstacks -Llibstacks -lstacks
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra -Ilibft -Ilibstacks
+LIBFT		=	-Llibft -lft
+LIBSTACKS	=	-Llibstacks -lstacks
 SRC			=	push_swap.c \
 				args_to_ilist.c \
 				index_ilist.c \
@@ -29,29 +30,30 @@ SRC			=	push_swap.c \
 				r_rr.c
 OBJ			=	$(SRC:%.c=%.o)
 
-all: $(NAME)
+all: DEPS $(NAME)
 
-$(NAME): obj
-	@make -C libstacks
-	@make -C libft
-	@make -C checkerr
-	@cp -f checkerr/checker .
-	@gcc $(OBJ) -Llibft -lft -Llibstacks -lstacks -o $(NAME)
+$(NAME): $(OBJ)
+	gcc $(OBJ) $(LIBFT) $(LIBSTACKS) -o $(NAME)
 
-obj:
-	@gcc $(FLAGS) $(SRC) -Ilibft -Ilibstacks
+%.o: %.c %.h
+
+DEPS:
+	make -C libstacks/
+	make -C libft/
+	make -C checkerr/
+	cp -f checkerr/checker .
 
 clean:
-	@make -C libft $@
-	@make -C libstacks $@
-	@make -C checkerr $@
-	@rm -f $(OBJ)
+	make -C libft $@
+	make -C libstacks $@
+	make -C checkerr $@
+	rm -f $(OBJ)
 
 fclean: clean
-	@make -C libft $@
-	@make -C libstacks $@
-	@make -C checkerr $@
-	@rm -f checker
-	@rm -f $(NAME)
+	make -C libft $@
+	make -C libstacks $@
+	make -C checkerr $@
+	rm -f checker
+	rm -f $(NAME)
 
 re: fclean all
