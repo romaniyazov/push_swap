@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 17:47:18 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/21 17:24:49 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/22 14:25:15 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ int		isint(char *str)
 			return (0);
 		s++;
 	}
-	if ((!neg && ft_strlen(str) > 9 && ft_strcmp("2147483647", str) < 0) ||
-		(neg && ft_strlen(str) > 9 && ft_strcmp("2147483648", str) < 0))
+	if ((!neg && ft_strlen(str) == 10 && ft_strcmp(str, "2147483647") > 0) ||
+		(neg && ft_strlen(str) == 10 && ft_strcmp(str, "2147483648") > 0) ||
+		(ft_strlen(str) > 10))
 		return (0);
 	return (1);
 }

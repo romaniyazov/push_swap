@@ -56,13 +56,19 @@ def	draw_stacks():
 			if al[x] != 0:
 				al[x].setOutline(color_rgb(255, 160, 128))
 				al[x].setFill(color_rgb(255, 160, 128))
-				al[x].draw(win)
+				try:
+					al[x].draw(win)
+				except GraphicsError:
+					exit()
 		if bl[x] != bol[x]:
 			if bol[x] != 0: bol[x].undraw()
 			if bl[x] != 0:
 				bl[x].setOutline(color_rgb(255, 160, 128))
 				bl[x].setFill(color_rgb(255, 160, 128))
-				bl[x].draw(win)
+				try:
+					bl[x].draw(win)
+				except GraphicsError:
+					exit()
 
 def create_stacks():
 	for x in range(len_a):
@@ -90,7 +96,6 @@ elif len(argv) == 2:
 else:
 	args = [num for num in argv]
 	args.pop(0)
-print(args)
 if len(args) != len(set(args)):
 	print('Args not valid.')
 	exit()
@@ -134,7 +139,10 @@ b = []
 
 #	Display stacks and wait for click
 text = put_operation('Click!', 0)
-text.draw(win)
+try:
+	text.draw(win)
+except GraphicsError:
+	exit()
 create_stacks()
 draw_stacks()
 win.getMouse()
@@ -148,10 +156,14 @@ while inp:
 	handle_op(inp, a, b, text)
 	text.undraw()
 	text = put_operation(inp, cnt)
-	text.draw(win)
+	try:
+		text.draw(win)
+	except GraphicsError:
+		exit()
 	create_stacks()
 	draw_stacks()
-	if win.checkMouse(): exit()
+	if win.checkKey() == 'Escape':
+		exit()
 	win.update()
 	cnt += 1
 text.undraw()
@@ -159,10 +171,13 @@ if a == sorted(a):
 	text = put_operation('OK', cnt - 1)
 else:
 	text = put_operation('KO', cnt - 1)
-text.draw(win)
-while not win.isClosed():
-	try:
-		if win.checkKey() == 'Escape':
-			exit()
-	except KeyboardInterrupt:
-		exit()
+try:
+	text.draw(win)
+except GraphicsError:
+	exit()
+try:
+	while win.getKey() != 'Escape':
+		pass
+except GraphicsError:
+	pass
+exit()
