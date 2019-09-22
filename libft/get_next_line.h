@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 15:21:32 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/06 19:03:23 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/22 13:38:33 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFF_SIZE 128
+# define BUFF_SIZE 3
 
 typedef struct	s_gnl
 {

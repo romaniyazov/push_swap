@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:11:59 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/21 18:03:37 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/22 13:41:49 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int		is_instruction(char *inst)
 
 void	read_instructions2(t_stack **a, t_stack **b, char *line)
 {
-	int		i;
-
 	if (!ft_strcmp(line, "rr"))
 	{
 		rotate(a);
@@ -51,9 +49,6 @@ void	read_instructions2(t_stack **a, t_stack **b, char *line)
 		push(b, a);
 	if (!ft_strcmp(line, "sb"))
 		swap(b);
-	i = 0;
-	while (i < 20000)
-		i++;
 }
 
 void	read_instructions(t_stack **a, t_stack **b)
@@ -80,6 +75,7 @@ void	read_instructions(t_stack **a, t_stack **b)
 		if (!ft_strcmp(line, "rb"))
 			rotate(b);
 		read_instructions2(a, b, line);
+		ft_strdel(&line);
 		cnt++;
 	}
 }

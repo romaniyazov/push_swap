@@ -6,14 +6,15 @@
 #    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 13:37:06 by adavis            #+#    #+#              #
-#    Updated: 2019/09/21 18:03:56 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/22 13:53:58 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	checker
-FLAGS		=	-Wall -Werror -Wextra -g
-LIBFT		=	-I../libft -L../libft -lft
-LIBSTACKS	=	-I../libstacks -L../libstacks -lstacks
+CC			=	GCC
+CFLAGS		=	-Wall -Werror -Wextra -I ../libft -I../libstacks
+LIBFT		=	-L../libft -lft
+LIBSTACKS	=	-L../libstacks -lstacks
 SRC			=	checker.c \
 				args_to_list.c \
 				print_stacks.c \
@@ -21,14 +22,23 @@ SRC			=	checker.c \
 				terminate.c
 OBJ			=	$(SRC:%.c=%.o)
 
-$(NAME):
-	@gcc $(FLAGS) $(LIBFT) $(LIBSTACKS) $(SRC) -o $(NAME)
+all: DEPS $(NAME)
 
-all: $(NAME)
+$(NAME): $(OBJ)
+	gcc $(OBJ) $(LIBFT) $(LIBSTACKS) -o $(NAME)
+
+DEPS:
+	make -C ../libft/
+	make -C ../libstacks/
+
+%.o: %.c %.h
 
 clean:
-	@rm -f $(NAME)
+	make -C ../libft $@
+	make -C ../libstacks $@
+	rm -f $(OBJ)
 
 fclean: clean
+	rm -f $(NAME)
 
 re: fclean all

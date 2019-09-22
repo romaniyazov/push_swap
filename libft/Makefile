@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adavis <adavis@student.21-school.ru>       +#+  +:+       +#+         #
+#    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 13:37:06 by adavis            #+#    #+#              #
-#    Updated: 2019/09/08 20:03:20 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/22 13:48:18 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
-FLAGS		=	-Wall -Werror -Wextra -c
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra -c
 SRC			=	ft_memset.c \
 				ft_bzero.c \
 				ft_memcpy.c \
@@ -82,22 +83,23 @@ SRC			=	ft_memset.c \
 				get_next_line.c
 OBJ			=	$(SRC:%.c=%.o)
 
-$(NAME):
-	@gcc $(FLAGS) $(SRC)
-	@ar rc $(NAME) $(OBJ)
-	@make -C ft_printf
-	@rm -f libft.a
-	@mv ft_printf/libft.a .
-	@ranlib $(NAME)
-
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	make -C ft_printf
+	rm -f libft.a
+	mv ft_printf/libft.a .
+	ranlib $(NAME)
+
+%.o: %.c %.h
+
 clean:
-	@rm -f $(OBJ)
-	@make -C ft_printf $@
+	rm -f $(OBJ)
+	make -C ft_printf $@
 
 fclean: clean
-	@rm -f $(NAME)
-	@make -C ft_printf $@
+	rm -f $(NAME)
+	make -C ft_printf $@
 
 re: fclean all

@@ -6,12 +6,13 @@
 #    By: adavis <adavis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/02 18:04:47 by adavis            #+#    #+#              #
-#    Updated: 2019/09/06 19:22:17 by adavis           ###   ########.fr        #
+#    Updated: 2019/09/22 13:51:03 by adavis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
-FLAGS	=	-Wall -Werror -Wextra
+CC		=	gcc
+CFLAGS	=	-Wall -Werror -Wextra -I../
 SRC 	=	ft_printf.c \
 			parse.c \
 			set_flags.c \
@@ -32,19 +33,23 @@ SRC 	=	ft_printf.c \
 			ft_putnbr_base.c
 OBJ		=	$(SRC:%.c=%.o)
 
-$(NAME):
-	@gcc $(SRC) $(FLAGS) -c -I../
-	@cp ../libft.a .
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
-	@cp libft.a ../
+all: DEPS $(NAME)
 
-all: $(NAME)
+$(NAME): $(OBJ)
+	cp ../libft.a .
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+	cp libft.a ../
+
+%.o: %.c %.h
+
+DEPS:
+	make -C ../
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
