@@ -6,12 +6,11 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 15:11:59 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/22 13:41:49 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/22 14:42:19 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-#include <stdio.h>
 
 int		is_instruction(char *inst)
 {

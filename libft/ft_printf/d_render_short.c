@@ -6,7 +6,7 @@
 /*   By: adavis <adavis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 20:58:31 by adavis            #+#    #+#             */
-/*   Updated: 2019/09/05 18:52:51 by adavis           ###   ########.fr       */
+/*   Updated: 2019/09/22 14:42:01 by adavis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		d_render_short(short d)
 	int		div;
 	int		len;
 
-	printf("abc");
 	tmp = d;
 	div = 1;
 	while (tmp / div > 10)
