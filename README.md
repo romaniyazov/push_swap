@@ -13,17 +13,19 @@ instructions.
 
 #### Instructions
 
-| Code | Name             | Description |
-|------|------------------|-------------|
-| sa   | swap a           |             |
-| sb   | swap b           |             |
-| ss   | sa & sb          |             |
-| ra   | rotate a         |             |
-| rb   | rotate b         |             |
-| rr   | ra & rb          |             |
-| rra  | reverse rotate a |             |
-| rrb  | reverse rotate b |             |
-| rrr  | rra & rrb        |             |
+| Code | Name             | Description                                       |
+|------|------------------|---------------------------------------------------|
+| sa   | swap A           | Swap the first two elements on stack A            |
+| sb   | swap B           | Swap the first two elements on stack B            |
+| ss   | sa & sb          |                                                   |
+| ra   | rotate A         | Move the first element of stack A to bottom       |
+| rb   | rotate B         | Move the first element of stack B to bottom       |
+| rr   | ra & rb          |                                                   |
+| rra  | reverse rotate A | Move the last element of stack A to top           |
+| rrb  | reverse rotate B | Move the last element of stack B to top           |
+| rrr  | rra & rrb        |                                                   |
+| pa   | push to A        | Push top element of stack B to the top of stack A |
+| pb   | push to B        | Push top element of stack A to the top of stack B |
 
 #### Example
 ```
@@ -56,6 +58,12 @@ pb
 KO
 ```
 
+### The algorithm
+The stack is being sorted using insertion sort algorithm, which is optimal
+(with some optimizations) considering the stack sizes during project evaluation
+(100 and 500 elements) and restrictions of only using two stacks and a limited
+set of instructions.
+
 ### Visualizer
 Visuzlizer is written in python3 and uses graphics.py
 (`pip3 install graphics.py`). It takes a list of numbers as argument and  reads
@@ -65,3 +73,8 @@ $> ./push_swap $ARG | ./visu $ARG
 ```
 
 ![visualizer](https://raw.githubusercontent.com/romaniyazov/push_swap/master/readme_assets/visualizer.png)
+
+### Useful resources
+https://en.wikipedia.org/wiki/Insertion_sort
+https://www.youtube.com/watch?v=ROalU379l3U
+http://www.cs.colby.edu/courses/F17/cs151/graphics.pdf
