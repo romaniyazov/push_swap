@@ -76,5 +76,7 @@ $> ./push_swap $ARG | ./visu $ARG
 
 ### Useful resources
 https://en.wikipedia.org/wiki/Insertion_sort
+
 https://www.youtube.com/watch?v=ROalU379l3U
+
 http://www.cs.colby.edu/courses/F17/cs151/graphics.pdf
